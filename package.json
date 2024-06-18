@@ -3,16 +3,17 @@
   "version": "1.0.0",
   "type": "module",
   "description": "[![Actions Status](https://github.com/helenowl/frontend-project-44/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/helenowl/frontend-project-44/actions)",
-  "main": "index.js",
+  "main": "src/cli.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "make": "^0.8.1"
+    "make": "^0.8.1",
+    "readline-sync": "^1.4.10"
   },
   "bin": {
-  "brain-games": "bin/brain-games.js"
-}
+    "brain-games": "bin/brain-games.js"
+  }
 }
