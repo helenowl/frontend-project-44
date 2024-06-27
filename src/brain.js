@@ -8,10 +8,3 @@ export function getAnsver(question) {
 export function getRandomInt(max) {
   return Math.floor(Math.random() * max);
 }
-
-export function getTrueAnsver(num) {
-  if (num % 2 === 0) {
-    return 'yes';
-  }
-  return 'no';
-}
