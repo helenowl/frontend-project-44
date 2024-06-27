@@ -8,3 +8,8 @@ export function getAnsver(question) {
 export function getRandomInt(max) {
   return Math.floor(Math.random() * max);
 }
+
+export function getRandomChar() {
+  const items = ['+', '-', '*'];
+  return items[Math.floor((Math.random() * items.length))];
+}
