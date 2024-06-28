@@ -6,7 +6,11 @@ export function getAnsver(question) {
 }
 
 export function getRandomInt(max) {
-  return Math.floor(Math.random() * max);
+  return Math.floor(Math.random() * max) + 1;
+}
+
+export function getRandomInt2(min, max) {
+  return Math.random() * (max - min) + min;
 }
 
 export function getRandomChar() {

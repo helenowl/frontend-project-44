@@ -2,6 +2,7 @@ import * as brain from './brain.js';
 import * as gbe from './games/game-brain-even.js';
 import * as gbc from './games/game-brain-calc.js';
 import * as gbg from './games/game-brain-gcd.js';
+import * as gbp from './games/game-brain-progression.js';
 
 const getGameType = (type) => {
   const gameType = [];
@@ -11,6 +12,8 @@ const getGameType = (type) => {
     gameType.push(...gbc.getGameAnsver());
   } else if (type === 'gbg') {
     gameType.push(...gbg.getGameAnsver());
+  } else if (type === 'gbp') {
+    gameType.push(...gbp.getGameAnsver());
   }
   return gameType;
 };
@@ -22,6 +25,8 @@ const getGameRulesType = (type) => {
     gbc.getGameRules();
   } else if (type === 'gbg') {
     gbg.getGameRules();
+  } else if (type === 'gbp') {
+    gbp.getGameRules();
   }
 };
 
