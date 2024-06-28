@@ -3,6 +3,7 @@ import * as gbe from './games/game-brain-even.js';
 import * as gbc from './games/game-brain-calc.js';
 import * as gbg from './games/game-brain-gcd.js';
 import * as gbp from './games/game-brain-progression.js';
+import * as gbpr from './games/game-brain-prime.js';
 
 const getGameType = (type) => {
   const gameType = [];
@@ -14,6 +15,8 @@ const getGameType = (type) => {
     gameType.push(...gbg.getGameAnsver());
   } else if (type === 'gbp') {
     gameType.push(...gbp.getGameAnsver());
+  } else if (type === 'gbpr') {
+    gameType.push(...gbpr.getGameAnsver());
   }
   return gameType;
 };
@@ -27,6 +30,8 @@ const getGameRulesType = (type) => {
     gbg.getGameRules();
   } else if (type === 'gbp') {
     gbp.getGameRules();
+  } else if (type === 'gbpr') {
+    gbpr.getGameRules();
   }
 };
 
