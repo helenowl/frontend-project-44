@@ -1,6 +1,7 @@
 import * as brain from './brain.js';
 import * as gbe from './games/game-brain-even.js';
 import * as gbc from './games/game-brain-calc.js';
+import * as gbg from './games/game-brain-gcd.js';
 
 const getGameType = (type) => {
   const gameType = [];
@@ -8,6 +9,8 @@ const getGameType = (type) => {
     gameType.push(...gbe.getGameAnsver());
   } else if (type === 'gbc') {
     gameType.push(...gbc.getGameAnsver());
+  } else if (type === 'gbg') {
+    gameType.push(...gbg.getGameAnsver());
   }
   return gameType;
 };
@@ -17,6 +20,8 @@ const getGameRulesType = (type) => {
     gbe.getGameRules();
   } else if (type === 'gbc') {
     gbc.getGameRules();
+  } else if (type === 'gbg') {
+    gbg.getGameRules();
   }
 };
 
@@ -28,13 +33,12 @@ export default (shortName) => {
   let j = 0;
   for (let i = 0; i < 3; i += 1) {
     const ansver = getGameType(shortName);
-    const userAnsver = ansver.at(0);
-    const trueAnsver = ansver.at(1);
-    if (userAnsver === trueAnsver) {
+
+    if (ansver[0] === ansver[1]) {
       j += 1;
       console.log('Correct!');
     } else {
-      console.log(`'${userAnsver}' is wrong answer ;(. Correct answer was '${trueAnsver}'.`);
+      console.log(`'${ansver[0]}' is wrong answer ;(. Correct answer was '${ansver[1]}'.`);
       console.log(`Let's try again, ${userName}!`);
       break;
     }
