@@ -1,4 +1,4 @@
 #!/usr/bin/env node
-import index from '../src/index.js';
+import gbpr from '../src/games/game-brain-prime.js';
 
-index('gbpr');
+gbpr();

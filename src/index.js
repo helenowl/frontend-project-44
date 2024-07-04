@@ -1,54 +1,21 @@
 import * as brain from './brain.js';
-import * as gbe from './games/game-brain-even.js';
-import * as gbc from './games/game-brain-calc.js';
-import * as gbg from './games/game-brain-gcd.js';
-import * as gbp from './games/game-brain-progression.js';
-import * as gbpr from './games/game-brain-prime.js';
 
-const getGameType = (type) => {
-  const gameType = [];
-  if (type === 'gbe') {
-    gameType.push(...gbe.getGameAnsver());
-  } else if (type === 'gbc') {
-    gameType.push(...gbc.getGameAnsver());
-  } else if (type === 'gbg') {
-    gameType.push(...gbg.getGameAnsver());
-  } else if (type === 'gbp') {
-    gameType.push(...gbp.getGameAnsver());
-  } else if (type === 'gbpr') {
-    gameType.push(...gbpr.getGameAnsver());
-  }
-  return gameType;
-};
-
-const getGameRulesType = (type) => {
-  if (type === 'gbe') {
-    gbe.getGameRules();
-  } else if (type === 'gbc') {
-    gbc.getGameRules();
-  } else if (type === 'gbg') {
-    gbg.getGameRules();
-  } else if (type === 'gbp') {
-    gbp.getGameRules();
-  } else if (type === 'gbpr') {
-    gbpr.getGameRules();
-  }
-};
-
-export default (shortName) => {
+export default (gameRules, getGameValues) => {
   console.log('Welcome to the Brain Games!');
   const userName = brain.getAnsver('May I have your name? ');
   console.log(`Hello, ${userName}!`);
-  getGameRulesType(shortName);
+  console.log(`${gameRules}`);
   let j = 0;
   for (let i = 0; i < 3; i += 1) {
-    const ansver = getGameType(shortName);
+    const [question, correctAnswer] = getGameValues();
+    console.log(`Question: ${question}`);
+    const yourAnswer = brain.getAnsver('Your answer: ');
 
-    if (ansver[0] === ansver[1]) {
+    if (yourAnswer === correctAnswer) {
       j += 1;
       console.log('Correct!');
     } else {
-      console.log(`'${ansver[0]}' is wrong answer ;(. Correct answer was '${ansver[1]}'.`);
+      console.log(`'${yourAnswer}' is wrong answer ;(. Correct answer was '${correctAnswer}'.`);
       console.log(`Let's try again, ${userName}!`);
       break;
     }

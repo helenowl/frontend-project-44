@@ -1,21 +1,25 @@
 import * as brain from '../brain.js';
+import app from '../index.js';
 
-export function getTrueAnsver(num) {
+const calculateTrueAnsver = (num) => {
   if (num % 2 === 0) {
     return 'yes';
   }
   return 'no';
-}
+};
 
-export function getGameRules() {
-  console.log('Answer "yes" if the number is even, otherwise answer "no"');
-}
+const getGameRules = () => {
+  const gameRules = 'Answer "yes" if the number is even, otherwise answer "no"';
+  return gameRules;
+};
 
-export function getGameAnsver() {
-  const randomInt = brain.getRandomInt(100);
-  console.log(`Question: ${randomInt}`);
-  const numberQuestion = brain.getAnsver('Your answer: ');
-  const trueAnsver = getTrueAnsver(randomInt);
-  const gameAnsver = [numberQuestion, trueAnsver];
+const getGameValues = () => {
+  const randomInt = brain.calculateRandomInt(100);
+  const trueAnsver = calculateTrueAnsver(randomInt);
+  const gameAnsver = [randomInt, trueAnsver];
   return gameAnsver;
-}
+};
+
+export default () => {
+  app(getGameRules(), getGameValues);
+};

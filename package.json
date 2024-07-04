@@ -2,8 +2,7 @@
   "name": "@hexlet/code",
   "version": "1.0.0",
   "type": "module",
-  "description": "[![Actions Status](https://github.com/helenowl/frontend-project-44/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/helenowl/frontend-project-44/actions)",
-  "main": "src/cli.js",
+  "description": "Node.js boilerplate package",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -29,8 +28,6 @@
     "eslint-config-airbnb": "^19.0.4",
     "eslint-plugin-import": "^2.29.1",
     "eslint-plugin-jsx-a11y": "^6.8.0",
-    "eslint-plugin-react": "^7.34.2",
-    "eslint-plugin-react-hooks": "^4.6.2",
     "globals": "^15.6.0"
   }
 }

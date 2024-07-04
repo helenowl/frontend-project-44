@@ -1,6 +1,7 @@
 import * as brain from '../brain.js';
+import app from '../index.js';
 
-export function getQuestion(num1, step, lineLength) {
+const calculateQuestion = (num1, step, lineLength) => {
   const result = [num1];
 
   for (let i = 1; result.length <= lineLength; i += 1) {
@@ -9,25 +10,28 @@ export function getQuestion(num1, step, lineLength) {
     result.push(item);
   }
   return result;
-}
+};
 
-export function getGameRules() {
-  console.log('What number is missing in the progression?');
-}
+const getGameRules = () => {
+  const gameRules = 'What number is missing in the progression?';
+  return gameRules;
+};
 
-export function getGameAnsver() {
-  const randomInt1 = brain.getRandomInt(100);
-  const randomStep = brain.getRandomInt(10);
-  const randomLength = brain.getRandomInt2(5, 11);
-  const randomPoint = brain.getRandomInt(randomLength - 1);
+const getGameAnsver = () => {
+  const randomInt1 = brain.calculateRandomInt(100);
+  const randomStep = brain.calculateRandomInt(10);
+  const randomLength = brain.calculateRandomInt2(5, 11);
+  const randomPoint = brain.calculateRandomInt(randomLength - 1);
   const point = '..';
 
-  const question = getQuestion(randomInt1, randomStep, randomLength);
-  const trueAnsver = `${question[randomPoint]}`;
+  const question = calculateQuestion(randomInt1, randomStep, randomLength);
+  const trueAnsver = String(question[randomPoint]);
   question[randomPoint] = point;
   const phraseQuestion = question.join(' ');
-  console.log(`Question: ${phraseQuestion}`);
-  const numberQuestion = brain.getAnsver('Your answer: ');
-  const gameAnsver = [numberQuestion, trueAnsver];
+  const gameAnsver = [phraseQuestion, trueAnsver];
   return gameAnsver;
-}
+};
+
+export default () => {
+  app(getGameRules(), getGameAnsver);
+};

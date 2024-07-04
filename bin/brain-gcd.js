@@ -1,4 +1,4 @@
 #!/usr/bin/env node
-import index from '../src/index.js';
+import gbg from '../src/games/game-brain-gcd.js';
 
-index('gbg');
+gbg();

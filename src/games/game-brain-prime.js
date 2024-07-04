@@ -1,6 +1,7 @@
 import * as brain from '../brain.js';
+import app from '../index.js';
 
-export function getTrueAnsver(num) {
+const calculateTrueAnsver = (num) => {
   if (num === 1) {
     return 'no';
   }
@@ -10,19 +11,21 @@ export function getTrueAnsver(num) {
       // break;
     }
   }
-
   return 'yes';
-}
+};
 
-export function getGameRules() {
-  console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
-}
+const getGameRules = () => {
+  const gameRules = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+  return gameRules;
+};
 
-export function getGameAnsver() {
-  const randomInt = brain.getRandomInt(100);
-  console.log(`Question: ${randomInt}`);
-  const numberQuestion = brain.getAnsver('Your answer: ');
-  const trueAnsver = getTrueAnsver(randomInt);
-  const gameAnsver = [numberQuestion, trueAnsver];
+const getGameValues = () => {
+  const randomInt = brain.calculateRandomInt(100);
+  const trueAnsver = calculateTrueAnsver(randomInt);
+  const gameAnsver = [randomInt, trueAnsver];
   return gameAnsver;
-}
+};
+
+export default () => {
+  app(getGameRules(), getGameValues);
+};

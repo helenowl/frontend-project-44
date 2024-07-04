@@ -1,6 +1,7 @@
 import * as brain from '../brain.js';
+import app from '../index.js';
 
-export function getTrueAnsver(num1, num2, char) {
+const calculateTrueAnsver = (num1, num2, char) => {
   let result = 0;
   if (char === '+') {
     result = num1 + num2;
@@ -9,22 +10,24 @@ export function getTrueAnsver(num1, num2, char) {
   } else if (char === '*') {
     result = num1 * num2;
   }
+  return String(result);
+};
 
-  return `${result}`;
-}
+const getGameRules = () => {
+  const gameRules = 'What is the result of the expression?';
+  return gameRules;
+};
 
-export function getGameRules() {
-  console.log('What is the result of the expression?');
-}
-
-export function getGameAnsver() {
-  const randomInt1 = brain.getRandomInt(100);
-  const randomInt2 = brain.getRandomInt(100);
-  const randomChar = brain.getRandomChar();
+const getGameValues = () => {
+  const randomInt1 = brain.calculateRandomInt(100);
+  const randomInt2 = brain.calculateRandomInt(100);
+  const randomChar = brain.calculateRandomChar();
   const question = `${randomInt1}${randomChar}${randomInt2}`;
-  console.log(`Question: ${question}`);
-  const numberQuestion = brain.getAnsver('Your answer: ');
-  const trueAnsver = getTrueAnsver(randomInt1, randomInt2, randomChar);
-  const gameAnsver = [numberQuestion, trueAnsver];
+  const trueAnsver = calculateTrueAnsver(randomInt1, randomInt2, randomChar);
+  const gameAnsver = [question, trueAnsver];
   return gameAnsver;
-}
+};
+
+export default () => {
+  app(getGameRules(), getGameValues);
+};

@@ -1,6 +1,7 @@
 import * as brain from '../brain.js';
+import app from '../index.js';
 
-export function getTrueAnsver(num1, num2) {
+const calculateTrueAnsver = (num1, num2) => {
   let result = 0;
   let n1 = num1;
   let n2 = num2;
@@ -16,21 +17,23 @@ export function getTrueAnsver(num1, num2) {
     n2 = n1 % n2;
     n1 = result;
   }
+  return String(result);
+};
 
-  return `${result}`;
-}
+const getGameRules = () => {
+  const gameRules = 'Find the greatest common divisor of given numbers.';
+  return gameRules;
+};
 
-export function getGameRules() {
-  console.log('Find the greatest common divisor of given numbers.');
-}
-
-export function getGameAnsver() {
-  const randomInt1 = brain.getRandomInt(100);
-  const randomInt2 = brain.getRandomInt(100);
+const getGameValues = () => {
+  const randomInt1 = brain.calculateRandomInt(100);
+  const randomInt2 = brain.calculateRandomInt(100);
   const question = `${randomInt1} ${randomInt2}`;
-  console.log(`Question: ${question}`);
-  const numberQuestion = brain.getAnsver('Your answer: ');
-  const trueAnsver = getTrueAnsver(randomInt1, randomInt2);
-  const gameAnsver = [numberQuestion, trueAnsver];
+  const trueAnsver = calculateTrueAnsver(randomInt1, randomInt2);
+  const gameAnsver = [question, trueAnsver];
   return gameAnsver;
-}
+};
+
+export default () => {
+  app(getGameRules(), getGameValues);
+};

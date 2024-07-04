@@ -5,15 +5,15 @@ export function getAnsver(question) {
   return ansver;
 }
 
-export function getRandomInt(max) {
+export function calculateRandomInt(max) {
   return Math.floor(Math.random() * max) + 1;
 }
 
-export function getRandomInt2(min, max) {
+export function calculateRandomInt2(min, max) {
   return Math.random() * (max - min) + min;
 }
 
-export function getRandomChar() {
+export function calculateRandomChar() {
   const items = ['+', '-', '*'];
   return items[Math.floor((Math.random() * items.length))];
 }
