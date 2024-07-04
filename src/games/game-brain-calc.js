@@ -22,7 +22,7 @@ const getGameValues = () => {
   const randomInt1 = brain.calculateRandomInt(100);
   const randomInt2 = brain.calculateRandomInt(100);
   const randomChar = brain.calculateRandomChar();
-  const question = `${randomInt1}${randomChar}${randomInt2}`;
+  const question = `${randomInt1} ${randomChar} ${randomInt2}`;
   const trueAnsver = calculateTrueAnsver(randomInt1, randomInt2, randomChar);
   const gameAnsver = [question, trueAnsver];
   return gameAnsver;
