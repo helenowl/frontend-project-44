@@ -1,33 +1,31 @@
-import * as brain from '../brain.js';
-import app from '../index.js';
+import * as utils from '../utils.js';
+import runIndex from '../index.js';
 
-const calculateTrueAnsver = (num1, num2, char) => {
-  let result = 0;
-  if (char === '+') {
-    result = num1 + num2;
-  } else if (char === '-') {
-    result = num1 - num2;
-  } else if (char === '*') {
-    result = num1 * num2;
+const maxInt = 100;
+
+const calculateTrueAnswer = (num1, num2, char) => {
+  switch (char) {
+    case '+':
+      return num1 + num2;
+    case '-':
+      return num1 - num2;
+    case '*':
+      return num1 * num2;
+    default: return console.log(`Sorry! This operation - ${char} is not available`);
   }
-  return String(result);
 };
 
-const getGameRules = () => {
-  const gameRules = 'What is the result of the expression?';
-  return gameRules;
-};
+const gameRules = 'What is the result of the expression?';
 
 const getGameValues = () => {
-  const randomInt1 = brain.calculateRandomInt(100);
-  const randomInt2 = brain.calculateRandomInt(100);
-  const randomChar = brain.calculateRandomChar();
+  const randomInt1 = utils.calculateRandomInt(maxInt);
+  const randomInt2 = utils.calculateRandomInt(maxInt);
+  const randomChar = utils.calculateRandomChar();
   const question = `${randomInt1} ${randomChar} ${randomInt2}`;
-  const trueAnsver = calculateTrueAnsver(randomInt1, randomInt2, randomChar);
-  const gameAnsver = [question, trueAnsver];
-  return gameAnsver;
+  const trueAnswer = calculateTrueAnswer(randomInt1, randomInt2, randomChar);
+  return [question, String(trueAnswer)];
 };
 
 export default () => {
-  app(getGameRules(), getGameValues);
+  runIndex(gameRules, getGameValues);
 };

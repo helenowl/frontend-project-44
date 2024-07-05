@@ -1,8 +1,8 @@
 import readlineSync from 'readline-sync';
 
-export function getAnsver(question) {
-  const ansver = readlineSync.question(question);
-  return ansver;
+export function getAnswer(question) {
+  const answer = readlineSync.question(question);
+  return answer;
 }
 
 export function calculateRandomInt(max) {
