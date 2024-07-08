@@ -1,4 +1,4 @@
-import * as utils from '../utils.js';
+import { calculateRandomInt } from '../utils.js';
 import runIndex from '../index.js';
 
 const maxInt = 100;
@@ -22,16 +22,16 @@ const calculateTrueAnswer = (num1, num2) => {
   return result;
 };
 
-const gameRules = 'Find the greatest common divisor of given numbers.';
+const gameRule = 'Find the greatest common divisor of given numbers.';
 
 const getGameValues = () => {
-  const randomInt1 = utils.calculateRandomInt(maxInt);
-  const randomInt2 = utils.calculateRandomInt(maxInt);
+  const randomInt1 = calculateRandomInt(maxInt);
+  const randomInt2 = calculateRandomInt(maxInt);
   const question = `${randomInt1} ${randomInt2}`;
   const trueAnswer = calculateTrueAnswer(randomInt1, randomInt2);
   return [question, String(trueAnswer)];
 };
 
 export default () => {
-  runIndex(gameRules, getGameValues);
+  runIndex(gameRule, getGameValues);
 };

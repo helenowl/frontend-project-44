@@ -1,4 +1,4 @@
-import * as utils from '../utils.js';
+import { calculateRandomInt, calculateRandomInt2 } from '../utils.js';
 import runIndex from '../index.js';
 
 const maxInt = 100;
@@ -10,20 +10,18 @@ const calculateQuestion = (num1, step, lineLength) => {
   const result = [num1];
 
   for (let i = 1; result.length <= lineLength; i += 1) {
-    const item = result[i];
-    result[i] = result[i - 1] + step;
-    result.push(item);
+    result.push(result[i - 1] + step);
   }
   return result;
 };
 
-const gameRules = 'What number is missing in the progression?';
+const gameRule = 'What number is missing in the progression?';
 
 const getGameAnswer = () => {
-  const randomInt1 = utils.calculateRandomInt(maxInt);
-  const randomStep = utils.calculateRandomInt(maxStep);
-  const randomLength = utils.calculateRandomInt2(minLength, maxLength);
-  const randomPoint = utils.calculateRandomInt(randomLength - 1);
+  const randomInt1 = calculateRandomInt(maxInt);
+  const randomStep = calculateRandomInt(maxStep);
+  const randomLength = calculateRandomInt2(minLength, maxLength);
+  const randomPoint = calculateRandomInt(randomLength - 1);
   const point = '..';
 
   const question = calculateQuestion(randomInt1, randomStep, randomLength);
@@ -34,5 +32,5 @@ const getGameAnswer = () => {
 };
 
 export default () => {
-  runIndex(gameRules, getGameAnswer);
+  runIndex(gameRule, getGameAnswer);
 };

@@ -1,14 +1,14 @@
-import * as utils from './utils.js';
+import { getAnswer } from './utils.js';
 
-export default (gameRules, getGameValues) => {
+export default (gameRule, getGameValues) => {
   console.log('Welcome to the Brain Games!');
-  const userName = utils.getAnswer('May I have your name? ');
+  const userName = getAnswer('May I have your name? ');
   console.log(`Hello, ${userName}!`);
-  console.log(`${gameRules}`);
+  console.log(`${gameRule}`);
   for (let i = 0; i < 3; i += 1) {
     const [question, correctAnswer] = getGameValues();
     console.log(`Question: ${question}`);
-    const yourAnswer = utils.getAnswer('Your answer: ');
+    const yourAnswer = getAnswer('Your answer: ');
 
     if (yourAnswer === correctAnswer) {
       console.log('Correct!');
